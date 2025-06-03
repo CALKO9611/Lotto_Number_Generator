@@ -44,3 +44,16 @@ def setup_ui(root):
     )
     game_combobox.current(0)
     game_combobox.pack()
+
+    # 버튼
+    start_Button = Button(frame_run, text="시작", width=10, height=2)
+    start_Button.pack(padx=3, pady=3)
+
+    help_Button = Button(frame_run, text="도움말", width=10, height=2)
+    help_Button.pack(padx=3, pady=3)
+
+    dhlottery_Button = Button(frame_run, text="동행복권\n사이트", width=10, height=2)
+    dhlottery_Button.pack(padx=3, pady=3)
+
+    end_Button = Button(frame_run, text="종료", width=10, height=2)
+    end_Button.pack(padx=3, pady=3)
