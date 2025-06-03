@@ -1,8 +1,27 @@
 from tkinter import *
+from tkinter import font
 import tkinter.ttk as ttk
 
 
 def setup_ui(root):
+    # 폰트
+    preferred_fonts = [
+        "맑은 고딕",
+        "Segoe UI",
+        "Arial",
+        "AppleGothic",
+        "Noto Sans CJK KR",
+    ]
+    for f in preferred_fonts:
+        if f in font.families():
+            selected_font = f
+            break
+    else:
+        selected_font = "TkDefaultFont"
+
+    bold_font = font.Font(family=selected_font, weight="bold")
+    normal_font = font.Font(family=selected_font)
+
     # 소개 문구 프레임
     intro_frame = Frame(root)
     intro_frame.pack(fill="both")
@@ -10,6 +29,7 @@ def setup_ui(root):
     intro_label = Label(
         intro_frame,
         text="로또 번호 자동 추출 프로그램입니다.\n사용 방법은 '도움말' 버튼을 눌러 확인해주세요.",
+        font=bold_font,
     )
     intro_label.pack()
 
@@ -46,14 +66,16 @@ def setup_ui(root):
     game_combobox.pack()
 
     # 버튼
-    start_Button = Button(frame_run, text="시작", width=10, height=2)
+    start_Button = Button(frame_run, text="시작", width=10, height=2, font=normal_font)
     start_Button.pack(padx=3, pady=3)
 
-    help_Button = Button(frame_run, text="도움말", width=10, height=2)
+    help_Button = Button(frame_run, text="도움말", width=10, height=2, font=normal_font)
     help_Button.pack(padx=3, pady=3)
 
-    dhlottery_Button = Button(frame_run, text="동행복권\n사이트", width=10, height=2)
+    dhlottery_Button = Button(
+        frame_run, text="동행복권\n사이트", width=10, height=2, font=normal_font
+    )
     dhlottery_Button.pack(padx=3, pady=3)
 
-    end_Button = Button(frame_run, text="종료", width=10, height=2)
+    end_Button = Button(frame_run, text="종료", width=10, height=2, font=normal_font)
     end_Button.pack(padx=3, pady=3)
