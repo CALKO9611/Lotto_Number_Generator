@@ -1,4 +1,5 @@
 from tkinter import *
+import tkinter.ttk as ttk
 
 
 def setup_ui(root):
@@ -28,3 +29,18 @@ def setup_ui(root):
     )
     list_file.pack(side="left", fill="both", expand=True)
     scrollbar.config(command=list_file.yview)
+
+    # 실행 프레임
+    frame_run = Frame(root)
+    frame_run.pack(fill="both", padx=5, pady=5)
+
+    # 게임 수 선택 라벨 프레임
+    game_count = LabelFrame(frame_run, text="게임 수")
+    game_count.pack(padx=5, pady=5)
+
+    game_values = [5, 10]
+    game_combobox = ttk.Combobox(
+        game_count, width=10, height=2, values=game_values, state="readonly"
+    )
+    game_combobox.current(0)
+    game_combobox.pack()
