@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import font
+from func import lotto_start
 import tkinter.ttk as ttk
 
 
@@ -66,7 +67,14 @@ def setup_ui(root):
     game_combobox.pack()
 
     # 버튼
-    start_Button = Button(frame_run, text="시작", width=10, height=2, font=normal_font)
+    start_Button = Button(
+        frame_run,
+        text="시작",
+        width=10,
+        height=2,
+        font=normal_font,
+        command=lambda: lotto_start(list_file, game_combobox),
+    )
     start_Button.pack(padx=3, pady=3)
 
     help_Button = Button(frame_run, text="도움말", width=10, height=2, font=normal_font)
