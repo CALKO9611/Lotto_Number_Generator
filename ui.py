@@ -97,5 +97,7 @@ def setup_ui(root):
     )
     dhlottery_Button.pack(padx=3, pady=3)
 
-    end_Button = Button(frame_run, text="종료", width=10, height=2, font=normal_font)
+    end_Button = Button(
+        frame_run, text="종료", width=10, height=2, font=normal_font, command=root.quit
+    )
     end_Button.pack(padx=3, pady=3)
