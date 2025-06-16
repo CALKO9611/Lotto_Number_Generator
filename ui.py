@@ -88,7 +88,12 @@ def setup_ui(root):
     help_Button.pack(padx=3, pady=3)
 
     dhlottery_Button = Button(
-        frame_run, text="동행복권\n사이트", width=10, height=2, font=normal_font
+        frame_run,
+        text="동행복권\n사이트",
+        width=10,
+        height=2,
+        font=normal_font,
+        command=lambda: lotto_site("https://www.dhlottery.co.kr/"),
     )
     dhlottery_Button.pack(padx=3, pady=3)
 
