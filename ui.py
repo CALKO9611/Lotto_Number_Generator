@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import font
-from func import lotto_start
+from func import *
 import tkinter.ttk as ttk
 
 
@@ -77,7 +77,14 @@ def setup_ui(root):
     )
     start_Button.pack(padx=3, pady=3)
 
-    help_Button = Button(frame_run, text="도움말", width=10, height=2, font=normal_font)
+    help_Button = Button(
+        frame_run,
+        text="도움말",
+        width=10,
+        height=2,
+        font=normal_font,
+        command=lotto_help,
+    )
     help_Button.pack(padx=3, pady=3)
 
     dhlottery_Button = Button(
