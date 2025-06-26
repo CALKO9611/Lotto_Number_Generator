@@ -1,10 +1,10 @@
 from tkinter import *
 from tkinter import font
-from func import *
+from lotto_logic import *
 import tkinter.ttk as ttk
 
 
-def setup_ui(root):
+def setup_main_ui(root):
     # 폰트
     preferred_fonts = [
         "맑은 고딕",
@@ -73,7 +73,7 @@ def setup_ui(root):
         width=10,
         height=2,
         font=normal_font,
-        command=lambda: lotto_start(list_file, game_combobox),
+        command=lambda: handle_start_button(list_file, game_combobox),
     )
     start_Button.pack(padx=3, pady=3)
 
@@ -83,7 +83,7 @@ def setup_ui(root):
         width=10,
         height=2,
         font=normal_font,
-        command=lotto_help,
+        command=show_help_message,
     )
     help_Button.pack(padx=3, pady=3)
 
@@ -93,7 +93,7 @@ def setup_ui(root):
         width=10,
         height=2,
         font=normal_font,
-        command=lambda: lotto_site("https://www.dhlottery.co.kr/"),
+        command=lambda: open_lotto_site("https://www.dhlottery.co.kr/"),
     )
     dhlottery_Button.pack(padx=3, pady=3)
 
