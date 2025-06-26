@@ -20,8 +20,10 @@ def setup_main_ui(root):
     else:
         selected_font = "TkDefaultFont"
 
-    bold_font = font.Font(family=selected_font, weight="bold")
-    normal_font = font.Font(family=selected_font)
+    # 폰트 객체를 상황별로 정의
+    bold_font_10 = font.Font(family=selected_font, weight="bold", size=10)
+    normal_font_10 = font.Font(family=selected_font, size=10)
+    normal_font_12 = font.Font(family=selected_font, size=12)
 
     # 소개 문구 프레임
     intro_frame = Frame(root)
@@ -30,7 +32,9 @@ def setup_main_ui(root):
     intro_label = Label(
         intro_frame,
         text="로또 번호 자동 추출 프로그램입니다.\n사용 방법은 '도움말' 버튼을 눌러 확인해주세요.",
-        font=bold_font,
+        padx=10,
+        pady=10,
+        font=bold_font_10,
     )
     intro_label.pack()
 
@@ -44,8 +48,7 @@ def setup_main_ui(root):
     list_file = Listbox(
         list_frame,
         selectmode="extended",
-        width=30,
-        height=10,
+        font=normal_font_12,
         yscrollcommand=scrollbar.set,
     )
     list_file.pack(side="left", fill="both", expand=True)
@@ -56,12 +59,17 @@ def setup_main_ui(root):
     frame_run.pack(fill="both", padx=5, pady=5)
 
     # 게임 수 선택 라벨 프레임
-    game_count = LabelFrame(frame_run, text="게임 수")
+    game_count = LabelFrame(frame_run, text="게임 수", font=bold_font_10)
     game_count.pack(padx=5, pady=5)
 
-    game_values = [5, 10]
+    game_values = [5, 10, 50]
     game_combobox = ttk.Combobox(
-        game_count, width=10, height=2, values=game_values, state="readonly"
+        game_count,
+        width=8,
+        height=2,
+        values=game_values,
+        font=normal_font_10,
+        state="readonly",
     )
     game_combobox.current(0)
     game_combobox.pack()
@@ -72,7 +80,7 @@ def setup_main_ui(root):
         text="시작",
         width=10,
         height=2,
-        font=normal_font,
+        font=normal_font_10,
         command=lambda: handle_start_button(list_file, game_combobox),
     )
     start_Button.pack(padx=3, pady=3)
@@ -82,7 +90,7 @@ def setup_main_ui(root):
         text="도움말",
         width=10,
         height=2,
-        font=normal_font,
+        font=normal_font_10,
         command=show_help_message,
     )
     help_Button.pack(padx=3, pady=3)
@@ -92,12 +100,17 @@ def setup_main_ui(root):
         text="동행복권\n사이트",
         width=10,
         height=2,
-        font=normal_font,
+        font=normal_font_10,
         command=lambda: open_lotto_site("https://www.dhlottery.co.kr/"),
     )
     dhlottery_Button.pack(padx=3, pady=3)
 
     end_Button = Button(
-        frame_run, text="종료", width=10, height=2, font=normal_font, command=root.quit
+        frame_run,
+        text="종료",
+        width=10,
+        height=2,
+        font=normal_font_10,
+        command=root.quit,
     )
     end_Button.pack(padx=3, pady=3)
