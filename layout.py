@@ -26,14 +26,14 @@ def setup_main_ui(root):
     normal_font_12 = font.Font(family=selected_font, size=12)
 
     # 소개 문구 프레임
-    intro_frame = Frame(root)
+    intro_frame = Frame(root, relief="groove", bd=3)
     intro_frame.pack(fill="both")
 
     intro_label = Label(
         intro_frame,
         text="로또 번호 자동 추출 프로그램입니다.\n사용 방법은 '도움말' 버튼을 눌러 확인해주세요.",
-        padx=10,
-        pady=10,
+        padx=5,
+        pady=5,
         font=bold_font_10,
     )
     intro_label.pack()
