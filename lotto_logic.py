@@ -2,6 +2,40 @@ from tkinter import *
 import tkinter.messagebox as msgbox
 import random
 import webbrowser
+import requests
+
+
+# 최근 당첨 번호 불러오기
+def fetch_recent_lotto():
+    try:
+        recent_draw = 1181  # 최근 회차 번호 로직 추가해야함
+        url = f"https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo={recent_draw}"
+        response = requests.get(url)
+        response.raise_for_status()
+        data = response.json()
+
+        if data["returnValue"] == "success":
+            numbers = [
+                data["drwtNo1"],
+                data["drwtNo2"],
+                data["drwtNo3"],
+                data["drwtNo4"],
+                data["drwtNo5"],
+                data["drwtNo6"],
+            ]
+            bonus = data["bnusNo"]
+            draw_date = data["drwNoDate"]
+
+            return (
+                f"로또 {recent_draw}회차 당첨 번호 ({draw_date})\n"
+                f"{', '.join(map(str, numbers))} + 보너스 {bonus}"
+            )
+
+        else:
+            return {"error": "API 요청 실패"}
+
+    except Exception as e:
+        return {"error": str(e)}
 
 
 # 로또 번호 생성 함수

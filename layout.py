@@ -38,6 +38,30 @@ def setup_main_ui(root):
     )
     intro_label.pack()
 
+    # 최근 당첨 번호 라벨
+    recent_numbers = fetch_recent_lotto()
+
+    if isinstance(recent_numbers, dict) and "error" in recent_numbers:
+        error_msg = f"오류 발생:\n{recent_numbers['error']}"
+        recent_numbers_label = Label(
+            intro_frame,
+            text=error_msg,
+            padx=5,
+            pady=5,
+            font=normal_font_10,
+            fg="red",
+        )
+    else:
+        recent_numbers_label = Label(
+            intro_frame,
+            text=recent_numbers,
+            padx=5,
+            pady=5,
+            font=normal_font_10,
+            fg="blue",
+        )
+    recent_numbers_label.pack()
+
     # 리스트 프레임
     list_frame = Frame(root)
     list_frame.pack(side="left", fill="both", padx=5, pady=5)
