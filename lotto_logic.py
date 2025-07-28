@@ -3,12 +3,36 @@ import tkinter.messagebox as msgbox
 import random
 import webbrowser
 import requests
+import datetime
+
+
+# 최근 로또 회차 불러오기
+def get_latest_lotto_round():
+    # 로또 1회차
+    first_draw_date = datetime.date(2002, 12, 7)
+
+    # 오늘 날짜
+    today = datetime.date.today()
+
+    # 오늘 이전 가장 가까운 토요일 구하기
+    days_since_saturday = (today.weekday() - 5) % 7
+    last_saturday = today - datetime.timedelta(days=days_since_saturday)
+
+    # 오늘이 토요일이면 추첨 전으로 가정
+    is_saturday = today.weekday() == 5
+    adjustment = -1 if is_saturday else 0
+
+    # 회차 계산 (매주 토요일마다 1회)
+    weeks_since_first = (last_saturday - first_draw_date).days // 7
+    draw_number = (weeks_since_first + 1) + adjustment
+
+    return draw_number
 
 
 # 최근 당첨 번호 불러오기
 def fetch_recent_lotto():
     try:
-        recent_draw = 1181  # 최근 회차 번호 로직 추가해야함
+        recent_draw = get_latest_lotto_round()
         url = f"https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo={recent_draw}"
         response = requests.get(url)
         response.raise_for_status()
