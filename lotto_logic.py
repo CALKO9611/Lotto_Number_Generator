@@ -81,7 +81,14 @@ def handle_start_button(list_file, game_combobox):
 def show_help_message():
     msgbox.showinfo(
         "도움말",
-        "[프로그램 사용 방법]\n1. '게임 수'를 설정 후 '시작' 버튼을 누르세요.\n2. '동행복권 사이트' 버튼을 누르면 \nhttps://www.dhlottery.co.kr/ 로 연결됩니다.\n\n당첨을 기원합니다! (*＾▽＾)／\n\nDeveloped by CALKO",
+        "[프로그램 사용 방법]\n"
+        "1. '게임 수'를 설정한 후 '시작' 버튼을 누르세요.\n"
+        "2. 최근 당첨 번호를 확인할 수 있습니다.\n"
+        "   (단, 토요일에는 일주일 전 결과만 표시됩니다.)\n"
+        "3. '동행복권 사이트' 버튼을 누르면\n"
+        "   https://www.dhlottery.co.kr/ 로 연결됩니다.\n\n"
+        "행운을 빕니다! (*＾▽＾)／\n\n"
+        "Developed by CALKO",
     )
 
 
