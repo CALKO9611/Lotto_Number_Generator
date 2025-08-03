@@ -5,7 +5,7 @@
 |김서원|
 |:---:| 
 |<a href="https://github.com/CALKO9611"><img src="https://avatars.githubusercontent.com/u/89835647?v=4" width="150"/></a>|
-|BLOG : [CALKO LAB](https://calkolab.tistory.com/) |
+|BLOG : <a href="https://calkolab.tistory.com/" target="_blank">CALKO LAB</a>|
 
 ## 📄 프로젝트 소개
 간단하고 직관적인 **로또 번호 생성기 데스크탑 앱**입니다.  
