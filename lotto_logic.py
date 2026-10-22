@@ -33,30 +33,30 @@ def get_latest_lotto_round():
 def fetch_recent_lotto():
     try:
         recent_draw = get_latest_lotto_round()
-        url = f"https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo={recent_draw}"
+        # url = f"https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo={recent_draw}"
+        url = f"https://www.dhlottery.co.kr/lt645/selectPstLt645Info.do?srchLtEpsd={recent_draw}"
         response = requests.get(url)
         response.raise_for_status()
         data = response.json()
 
-        if data["returnValue"] == "success":
-            numbers = [
-                data["drwtNo1"],
-                data["drwtNo2"],
-                data["drwtNo3"],
-                data["drwtNo4"],
-                data["drwtNo5"],
-                data["drwtNo6"],
-            ]
-            bonus = data["bnusNo"]
-            draw_date = data["drwNoDate"]
+        lotto_data = data["data"]["list"][0]
 
-            return (
-                f"로또 {recent_draw}회차 당첨 번호 ({draw_date})\n"
-                f"{', '.join(map(str, numbers))} + 보너스 {bonus}"
-            )
+        numbers = [
+            lotto_data["tm1WnNo"],
+            lotto_data["tm2WnNo"],
+            lotto_data["tm3WnNo"],
+            lotto_data["tm4WnNo"],
+            lotto_data["tm5WnNo"],
+            lotto_data["tm6WnNo"],
+        ]
+        bonus = lotto_data["bnsWnNo"]
+        draw_date = lotto_data["ltRflYmd"]
 
-        else:
-            return {"error": "API 요청 실패"}
+        return (
+            f"로또 {lotto_data['ltEpsd']}회차 당첨 번호 "
+            f"({draw_date})\n"
+            f"{', '.join(map(str, numbers))} + 보너스 {bonus}"
+        )
 
     except Exception as e:
         return {"error": str(e)}
