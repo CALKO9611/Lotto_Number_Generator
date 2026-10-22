@@ -1,5 +1,5 @@
-# 🎲 로또 번호 생성기 v1.0
-<img src="https://github.com/user-attachments/assets/ca345898-8b6f-4a0d-bee2-847a02ffc0eb" width="40%" height="40%" alt="로또 번호 생성기 v1.0" />
+# 🎲 로또 번호 생성기 v1.1
+<img src="https://github.com/user-attachments/assets/72a4a6bb-e299-4be9-8ed6-d10d36f6a37a" width="40%" height="40%" alt="로또 번호 생성기 v1.1" />
 
 ## 💻 개발자 소개
 |김서원|
@@ -12,10 +12,10 @@
 버튼 클릭 한 번으로 로또 번호 조합(6개 숫자)을 생성할 수 있습니다.
 또한 `동행복권 API`를 사용하여 최근 회차 번호 자동으로 계산하여 출력해 줍니다.
 
-이 프로젝트는 Python의 GUI 라이브러리인 **Tkinter**로 제작되었으며, `로또 번호 생성기 v1.0.exe` 실행 파일로 배포되어 별도의 Python 설치 없이도 누구나 사용할 수 있습니다.
+이 프로젝트는 Python의 GUI 라이브러리인 **Tkinter**로 제작되었으며, `로또 번호 생성기 v1.1.exe` 실행 파일로 배포되어 별도의 Python 설치 없이도 누구나 사용할 수 있습니다.
 
-## 🎨 디자인 초안
-<img src="https://github.com/user-attachments/assets/09bf0a93-449c-49a2-91a2-b3eae99701d1" width="40%" height="40%" alt="디자인 초안">
+## 🎨 디자인
+<img width="395" height="512" alt="디자인" src="https://github.com/user-attachments/assets/6057aa2f-1e37-48d3-b27c-9f77691f3389" />
 
 ## ✅ 주요 기능
 - 중복 없는 로또 번호(1~45) 6개 자동 생성
@@ -23,7 +23,7 @@
 - 별도의 설치 과정 없이 바로 실행 가능한 .exe 배포
 
 ## 🖱️ 실행 방법
-1. `로또 번호 생성기 v1.0.exe` 파일을 실행합니다.
+1. `로또 번호 생성기 v1.1.exe` 파일을 실행합니다.
 2. `게임 수`를 설정한 뒤 `시작` 버튼을 클릭합니다.
 
 ## 🛠️ 기술 스택
